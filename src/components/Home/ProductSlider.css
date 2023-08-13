@@ -1,0 +1,80 @@
+.about .content .icons-container .icons:hover {
+  background-color: #c4fa6f;
+  color: #052a2a;
+  filter: none;
+  border-color: #c0ff0c;
+  border-width: 7px;
+  box-shadow: 0 5px 10px #c0ff0c;
+  transition: 1s !important;
+}
+
+
+/* .slider-container{
+  height: 400px;
+} */
+
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; 
+  filter: blur(0); 
+  transition: filter 0.5s ease; 
+  box-shadow: 0 4px 8px;
+  border-style: solid ;
+  border-width: 3px;
+  border-color: #c4fa6f;
+}
+
+.card:hover {
+  filter: none; /* Remove the blur when hovering over a card */
+  border-color: #c0ff0c;
+  border-width: 5px;
+  box-shadow: 0 5px 10px #c4fa6f;
+}
+
+.img_div{
+  height: 200px;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 100%; 
+  transition: filter 0.3s ease, transform 0.3s ease; /* Add a transition effect for the blur and transform */
+}
+
+.card:hover .card-img-top {
+  filter: blur(1px); /* Apply the blur to the card image when hovering over a card */
+  transform: scale(1.1); /* Add a zoom-in effect on the card image when hovering over a card */
+  transition: 0.8s;
+  
+}
+
+.card-body {
+  flex: 1; /* To make the card body take up the remaining height */
+  display: flex;
+  font-size: 14px;
+  flex-direction: column;
+  justify-content: space-between; /* Align items vertically and distribute space between them */
+}
+
+.card-title,
+.card-text {
+  margin-bottom: 1rem; /* Add some space between card title, description, and the button */
+}
+
+.btn-primary {
+  transition: transform 0.5s ease; /* Add a transition effect for the button transform */
+  /* background-color: #c0ff0c;
+  color: black; */
+  background-color: #052a2a;
+  color: #d9edc4;
+}
+
+.btn-primary:hover{
+  background-color: #526129;
+}
+
+.card:hover .btn-primary {
+  transform: scale(1.1); /* Add a scale-up effect on the "Explore" button when hovering over a card */
+}

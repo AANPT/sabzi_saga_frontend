@@ -1,0 +1,44 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    /* background-color: #c4fa6f; */
+  }
+  
+  .background-image {
+    background: url("../../assets/images/try.png") no-repeat;
+    background-size: cover;
+    height: 50vh;
+    background-position: 100% 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px; 
+    position: relative;
+  }
+  
+  .store-text {
+    position: absolute;
+    top: 40px; /* Adjust the top value to position the text vertically */
+    left: 40px; /* Adjust the left value to position the text horizontally */
+    font-size: 3rem; /* Adjust the font size to make it larger or smaller */
+    font-weight: bold;
+    color: #000000; 
+  }
+  
+.card{
+    transition: all 0.3s;
+    /* background-color: #c4fa6f; */
+    box-shadow: 0 4px 10px #c0ff0c; /* Shadow */
+    border: 2px solid #c4fa6f; /* Border color */
+    border-radius: 10px;
+}
+.card:hover {
+   /*  box-shadow: 0 4px 8px rgba(60, 243, 4, 0.1); */
+    transform: scale(1.10);
+  }
+
+
+
+
