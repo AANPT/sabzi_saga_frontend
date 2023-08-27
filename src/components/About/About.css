@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Banner Section */
+  .banner-section {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+  }
+  
+  .banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(40%);
+  }
+  
+  .banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .page-subtitle {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+  }
+  
+  /* Mission Section */
+  .mission-section {
+    padding: 4rem 0;
+  }
+  
+  .mission-content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .mission-title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .mission-description {
+    font-size: 1rem;
+    text-align: justify;
+  }
+  
+  .mission-italic {
+    font-style: italic;
+  }
+  
+  .mission-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .logo-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Creators Section */
+  .creators-section {
+    padding: 4rem 0;
+  }
+  
+  .creators-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Creator Cards */
+  .h-100 {
+    height: 100%;
+  }
+  
+  .bg-image {
+    background-color: #c4fa6f;
+  }
+  
+  .rounded-circle {
+    border-radius: 50%;
+  }
+  
+  .creator-card {
+    background-color: #c4fa6f;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 5px 10px;
+  }
+  
+  .creator-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .creator-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    /* margin-bottom: 1rem; */
+    margin: 0 10px 1rem 10px;
+  }
+  
+  .creator-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }

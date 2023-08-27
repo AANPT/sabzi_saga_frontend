@@ -1,0 +1,29 @@
+.prediction-page {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  
+  .prediction-table {
+    width: 100%;
+    margin-top: 1rem;
+    border-collapse: collapse;
+  }
+  
+  .prediction-table th,
+  .prediction-table td {
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .product-image {
+    max-width: 80px;
+    max-height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+  }

@@ -27,18 +27,27 @@
     color: #000000; 
   }
   
-.card{
+
+  .custom-card {
     transition: all 0.3s;
-    /* background-color: #c4fa6f; */
-    box-shadow: 0 4px 10px #c0ff0c; /* Shadow */
-    border: 2px solid #c4fa6f; /* Border color */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Updated Shadow */
+    border: 2px solid #052A2A; /* Updated Border color */
     border-radius: 10px;
-}
-.card:hover {
-   /*  box-shadow: 0 4px 8px rgba(60, 243, 4, 0.1); */
-    transform: scale(1.10);
+    overflow: hidden;
   }
-
-
-
+  
+  .custom-card:hover {
+    box-shadow: 0 8px 16px rgba(5, 42, 42, 0.2); /* Enhanced Shadow */
+    transform: scale(1.05);
+  }
+  
+  .custom-btn {
+    background-color: #052A2A;
+    color: #d9edc4;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .custom-btn:hover {
+    background-color: #526129;
+  }
 

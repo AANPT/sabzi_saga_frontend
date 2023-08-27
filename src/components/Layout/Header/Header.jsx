@@ -15,9 +15,15 @@ import {
   faCartShopping,
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
+import { logout } from "../../../redux/actions/user";
 
-const Header = () => {
-  let isLoggedIn = true;
+const Header = ({ isAuthenticated = false, user }) => {
+
+  const dispatch = useDispatch();
+  const logoutHandler = () => {
+    dispatch(logout());
+  };
 
   return (
     <div>
@@ -63,61 +69,50 @@ const Header = () => {
                 Search
               </Button>
 
-              <Nav.Link>
-                <Link to="/" className="text-decoration-none text-reset">
-                  Home
-                </Link>
+              <Nav.Link href="/" className="text-decoration-none text-reset">
+
+                Home
+
               </Nav.Link>
-              <Nav.Link>
-                <Link to="/market" className="text-decoration-none text-reset">
-                  Market
-                </Link>
+              <Nav.Link href="/shops" className="text-decoration-none text-reset">
+
+                Market
+
               </Nav.Link>
-              <Nav.Link>
+              <Nav.Link href="/products" className="text-decoration-none text-reset">
                 {" "}
-                <Link
-                  to="/products"
-                  className="text-decoration-none text-reset"
-                >
-                  Products
-                </Link>
+
+                Products
+
               </Nav.Link>
-              <Nav.Link>
+              <Nav.Link href="/prediction" className="text-decoration-none text-reset">
                 {" "}
-                <Link
-                  to="/prediction"
-                  className="text-decoration-none text-reset"
-                >
-                  Prediction
-                </Link>
+
+                Prediction
+
               </Nav.Link>
-              <Nav.Link>
+              <Nav.Link href="/aboutus" className="text-decoration-none text-reset">
                 {" "}
-                <Link to="/aboutus" className="text-decoration-none text-reset">
-                  AboutUs
-                </Link>
+
+                AboutUs
+
               </Nav.Link>
-              <Nav.Link>
+              {/* <Nav.Link href="/location" className="text-decoration-none text-reset">
                 {" "}
-                <Link
-                  to="/location"
-                  className="text-decoration-none text-reset"
-                >
-                  <FontAwesomeIcon icon={faLocationDot} />
-                </Link>
-              </Nav.Link>
-              {isLoggedIn ? (
+
+                <FontAwesomeIcon icon={faLocationDot} />
+
+              </Nav.Link> */}
+              {isAuthenticated ? (
                 <>
-                  <Nav.Link href="#">
-                    <Link
-                      to="/cart"
-                      className="text-decoration-none text-reset"
-                    >
-                      <FontAwesomeIcon icon={faCartShopping} />
-                      <Badge pill bg="danger" id="cart_badge" className="mt-0">
-                        2
-                      </Badge>
-                    </Link>
+                  <Nav.Link href="/cart" className="text-decoration-none text-reset">
+
+                    <FontAwesomeIcon icon={faCartShopping} />
+                    <Badge pill bg="danger" id="cart_badge" className="mt-0">
+
+                      {user.cart.length}
+                    </Badge>
+
                   </Nav.Link>
                   <NavDropdown
                     title={<FontAwesomeIcon icon={faUser} />}
@@ -133,12 +128,37 @@ const Header = () => {
                       </Link>
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
+
+                    {
+                      user && user.role === 'vendor' && <>
+                        <NavDropdown.Item>
+                          <Link
+                            to="/vendor/dashboard"
+                            className="text-decoration-none text-reset"
+                          >
+                            Dashboard
+                          </Link>
+                        </NavDropdown.Item>
+                        <NavDropdown.Divider />
+                      </>
+                    }
+                    {
+                      user && user.role === 'admin' && <>
+                        <NavDropdown.Item>
+                          <Link
+                            to="/admin/dashboard"
+                            className="text-decoration-none text-reset"
+                          >
+                            Dashboard
+                          </Link>
+                        </NavDropdown.Item>
+                        <NavDropdown.Divider />
+                      </>
+                    }
+
                     <NavDropdown.Item>
-                      <Link
-                        to="/logout"
-                        className="text-decoration-none text-reset"
-                      >
-                        {" "}
+                      {" "}
+                      <Link className="text-decoration-none text-reset" onClick={logoutHandler}>
                         LogOut
                       </Link>
                     </NavDropdown.Item>
@@ -146,7 +166,7 @@ const Header = () => {
                 </>
               ) : (
                 <>
-                  <Nav.Link>
+                  <Navbar.Text>
                     <Link
                       to="/login"
                       className="text-decoration-none text-reset"
@@ -154,16 +174,16 @@ const Header = () => {
                       {" "}
                       Login
                     </Link>
-                  </Nav.Link>
-                  <Nav.Link>
+                  </Navbar.Text>
+                  <Navbar.Text>
                     <Link
-                      to="/signup"
+                      to="/registeroption"
                       className="text-decoration-none text-reset"
                     >
                       {" "}
                       SignUp
                     </Link>
-                  </Nav.Link>
+                  </Navbar.Text>
                 </>
               )}
             </Nav>

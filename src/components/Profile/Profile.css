@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body styling */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+  }
+  
+  /* Styling for the profile section */
+  .profile {
+    padding: 40px 0;
+  }
+  
+  .profile-image {
+    text-align: center;
+  }
+  
+  .profile-info {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-name {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .profile-username {
+    color: #555;
+    margin-top: 5px;
+    font-size: 18px;
+  }
+  
+  .profile-email {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .profile-created-at {
+    margin-top: 10px;
+    color: #888;
+    font-size: 14px;
+  }
+  
+  .profile-role {
+    margin-top: 10px;
+    font-style: italic;
+    font-size: 16px;
+  }
+  
+  .edit-details-button {
+    margin-top: 20px;
+  }
+  
+  /* Styling for the user buttons section */
+  .user-buttons {
+    background-color: #ffffff;
+    padding: 40px 0;
+  }
+  
+  .button-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .user-button {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s, opacity 0.3s;
+  }
+  
+  .cart-button {
+    background-color: #66bb6a;
+    border-color: #66bb6a;
+    color: #ffffff;
+  }
+  
+  .wishlist-button {
+    background-color: #5c6bc0;
+    border-color: #5c6bc0;
+    color: #ffffff;
+  }
+  
+  .order-button {
+    background-color: #ff7043;
+    border-color: #ff7043;
+    color: #ffffff;
+  }
+  
+  .user-button:hover {
+    background-color: #444;
+    opacity: 0.9;
+  }

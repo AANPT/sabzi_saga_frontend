@@ -4,10 +4,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Layout/Header/Header";
 import Market from "./components/Market/Market";
 import About from "./components/About/About";
-import ProductPage from "./components/ProductPage/ProductPage";
+// import ProductPage from "./components/ProductPage/ProductPage";
+import Products from "./components/Product/Products";
 import Prediction from "./components/Prediction/Prediction";
 import Login from "./components/Auth/Login";
-import SignUp from "./components/Auth/SignUp";
 import Footer from "./components/Layout/Footer/Footer";
 import Cart from "./components/Cart/Cart";
 import Profile from "./components/Profile/Profile";
@@ -15,28 +15,126 @@ import ChangePassword from "./components/Profile/ChangePassword";
 import Feedback from "./components/Feedback/Feedback";
 import Contact from "./components/Contact/Contact";
 import NotFound from "./components/Layout/NotFound/NotFound";
+import Register from "./components/Auth/Register";
+import ForgotPassword from "./components/Auth/ForgotPassword";
+import ResetPassword from "./components/Auth/ResetPassword";
+import { useDispatch, useSelector } from "react-redux";
+import toast, { Toaster } from 'react-hot-toast';
+import { useEffect } from "react";
+import { loadUser } from "./redux/actions/user";
+import { ProtectedRoute } from 'protected-route-react';
+import Stats from "./components/Moderator/Stats/Stats";
+import ProductMgmt from "./components/Moderator/ProductMgmt/ProductMgmt";
+import OrderMgmt from "./components/Moderator/Order/OrderMgmt";
+import RegisterOption from "./components/Auth/RegisterOption";
+import RegisterVendor from "./components/Auth/RegisterVendor";
+import Loader from "./components/Layout/Loader/Loader";
+import ItemList from "./components/Moderator/Order/vendorOrder";
+import Checkout from "./components/Checkout/Checkout";
+
 function App() {
+
+  window.addEventListener('contextmenu', e => {
+    e.preventDefault();
+  })
+
+  const { isAuthenticated, user, message, error, loading } = useSelector(
+    state => state.user
+  );
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+      dispatch({ type: 'clearError' });
+    }
+    if (message) {
+      toast.success(message);
+      dispatch({ type: 'clearMessage' });
+    }
+  }, [dispatch, error, message]);
+
+
+  useEffect(() => {
+    dispatch(loadUser());
+  }, [dispatch])
+
+
+
   return (
     <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/market" element={<Market />} />
-        <Route path="/aboutus" element={<About />} />
-        <Route path="/products" element={<ProductPage />} />
-        <Route path="/prediction" element={<Prediction />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/feedback" element={<Feedback />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/changepassword" element={<ChangePassword />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer />
+      {loading ? (<Loader />) : (
+        <>
+          <Header isAuthenticated={isAuthenticated} user={user} />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/shops" element={
+              <Market />
+            } />
+            <Route path="/aboutus" element={<About />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/:shopId" element={<Products />} />
+            <Route path="/prediction" element={<Prediction />} />
+
+            <Route path="/login" element={
+              <Login />
+            } />
+
+            <Route path="registeroption" element={
+              <RegisterOption />}
+            />
+
+            <Route path="/register/user" element={
+              <Register />}
+            />
+
+            <Route path="/register/vendor" element={
+              <RegisterVendor />
+            } />
+
+            <Route path="/cart" element={
+              <Cart />
+            } />
+
+            <Route path="/profile" element={
+              <Profile />
+            } />
+
+            <Route path="/forgotpassword" element={
+              <ForgotPassword />
+            } />
+
+            <Route path="/resetpassword/:token" element={
+              <ResetPassword />
+            } />
+
+            <Route path="/feedback" element={<Feedback />} />
+
+            <Route path="/orders" element={<OrderMgmt />} />
+
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/changepassword" element={<ChangePassword />} />
+            <Route path="*" element={<NotFound />} />
+
+
+            {/* Vendor Routes */}
+            <Route path="/vendor/dashboard" element={
+              <Stats />
+            } />
+            <Route path="/vendor/productmgmt" element={
+              <ProductMgmt />
+            } />
+            <Route path="/vendor/ordermgmt" element={
+              <ItemList />
+            } />
+          </Routes>
+          <Footer />
+          <Toaster />
+        </>
+      )}
+
     </Router>
   );
 }

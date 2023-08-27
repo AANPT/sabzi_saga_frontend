@@ -9,15 +9,15 @@ const SliderTop = () => {
   return (
     <>
       <Carousel>
-        <Carousel.Item style={{ height: "400px" }} interval={5000}>
+        <Carousel.Item style={{ height: "400px" }} interval={3000}>
           <img
             className="d-block h-100 w-100 object-fit-cover"
             src={banner1}
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>SabziSaga</h3>
+            <p>From Farm to Fork: Savor Nature's Bounty with Sabzi Saga!.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item style={{ height: "400px" }} interval={5000}>
@@ -27,8 +27,8 @@ const SliderTop = () => {
             alt="Second slide"
           />
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>SabziSaga</h3>
+            <p>From Farm to Fork: Savor Nature's Bounty with Sabzi Saga!.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item style={{ height: "400px" }} interval={5000}>
@@ -38,8 +38,8 @@ const SliderTop = () => {
             alt="Second slide"
           />
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>SabziSaga</h3>
+            <p>From Farm to Fork: Savor Nature's Bounty with Sabzi Saga!.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item style={{ height: "400px" }} interval={5000}>
@@ -49,8 +49,8 @@ const SliderTop = () => {
             alt="Second slide"
           />
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>SabziSaga</h3>
+            <p>From Farm to Fork: Savor Nature's Bounty with Sabzi Saga!.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item style={{ height: "400px" }}>
@@ -60,10 +60,8 @@ const SliderTop = () => {
             alt="Third slide"
           />
           <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
+            <h3>SabziSaga</h3>
+            <p>From Farm to Fork: Savor Nature's Bounty with Sabzi Saga!.</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

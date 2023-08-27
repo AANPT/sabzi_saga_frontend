@@ -1,0 +1,185 @@
+ /* .vendor-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.stats-card {
+  flex: 1;
+  max-width: calc(50% - 10px);
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: background-color 0.3s;
+  cursor: pointer;
+
+  margin-bottom: 0;
+}
+
+.stats-card:hover {
+  border-color: #c0ff0c;
+  border-width: 5px;
+  box-shadow: 0 5px 10px #c4fa6f;
+}
+
+.stats-card h2 {
+  margin-bottom: 10px;
+  color: #052a2a;
+}
+
+.profit {
+  font-size: 24px;
+  color: #36a630;
+}
+
+.stock-carousel {
+  margin-top: 20px;
+}
+
+.slick-slider {
+  width: 100%;
+}
+
+.slick-slide {
+  padding: 0 10px;
+}
+
+.slick-prev,
+.slick-next {
+  color: #000;
+  z-index: 1;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 20px;
+  color:darkslategray;
+}
+
+.top-selling-list p {
+  margin: 5px 0;
+  color:#052a2a ;
+}
+
+.low-quantity-list p {
+  margin: 5px 0;
+  color:#052a2a ;
+}
+
+@media (max-width: 768px) {
+  .stats-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stats-card {
+    max-width: 100%;
+  }
+} */
+
+
+.vendor-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.stats-card {
+  flex: 1;
+  min-width: 300px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: box-shadow 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+
+.stats-card:hover {
+  box-shadow: 0 5px 10px rgba(140, 255, 9, 0.2);
+  transform: translateY(-3px);
+}
+
+.stats-card h2 {
+  margin-bottom: 10px;
+  color: #052a2a;
+}
+
+.profit {
+  font-size: 24px;
+  color: #36a630;
+}
+
+.stock-carousel {
+  margin-top: 20px;
+}
+
+.slick-slider {
+  width: 100%;
+}
+
+.slick-slide {
+  padding: 0 10px;
+}
+
+.slick-prev,
+.slick-next {
+  color: #000;
+  z-index: 1;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 20px;
+  color: darkslategray;
+}
+
+.top-selling-list p,
+.low-quantity-list p {
+  margin: 5px 0;
+  color: #052a2a;
+  font-size: 16px;
+}
+
+.date-picker-container {
+  margin-top: 15px;
+}
+
+
+@media (max-width: 768px) {
+  .stats-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stats-card {
+    max-width: 100%;
+  }
+}
+
+

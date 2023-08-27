@@ -1,0 +1,203 @@
+.cart {
+    height: 80vh;
+    display: flex;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.cart-items-container {
+    flex: 1;
+    overflow-y: auto;
+    max-height: 600px;
+    width: 100%; 
+    margin: 0 20px;
+}
+
+.cart-summary-container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 300px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 20px;
+    background-color: white;
+}
+.cart-item {
+    display: flex;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    transition: box-shadow 0.5s;
+    max-width: 100%; 
+}
+
+.cart-item-image {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.cart-item-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+@media (max-width: 768px) {
+    .cart {
+        flex-direction: column; 
+        align-items: stretch; 
+        max-width: 100%; 
+    }
+
+    .cart-items-container {
+        max-height: none;
+    }
+
+    .cart-summary-container {
+        width: 100%; 
+        margin-top: 20px; 
+    }
+
+    .cart-item {
+        max-width: 100%; 
+    }
+}
+.cart-item {
+    display: flex;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    transition: box-shadow 0.5s;
+}
+.cart-item button {
+    font-size: 12px;
+    padding: 3px 6px; 
+    margin-left: 5px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 1;
+}
+.remove-button {
+    font-size: 12px;
+    padding: 3px 12px;
+    width: auto;
+    height: 20px;
+    text-align: center;
+    line-height: 1;
+    transition: transform 0.3s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.remove-button:hover {
+    transform: rotate(360deg);
+}
+
+.remove-button::before {
+    content: "\1F5D1"; /* Unicode character for a trash can icon */
+    font-size: 16px; 
+    /* color: #ff0000 !important;  */
+}
+.fa-trash-o {
+    font-size: 12px; 
+    vertical-align: middle;
+}
+.cart-summary {
+    border: 1px solid #4ad937;
+    padding: 20px;
+    margin-top: 20px;  
+
+}
+.cart-summary h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #052a2a;;
+}
+.cart-summary-button {
+    display: block;
+    margin-top: 10px;
+    background-color: white;
+    border-color:#052a2a;
+    color: #052a2a;
+    border-radius: 8px;
+}
+.cart-summary-button:hover{
+    color:#d9edc4 ;
+    background-color: #052a2a;
+}
+.cart-summary:hover{
+    box-shadow: 0 0 5px #c4fa6f; 
+    border: 1.5px solid #c0ff0c;
+}
+
+.place-order-button {
+    background-color: #c0ff0c;
+    color: #052A2A;;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+.place-order-button:hover{
+    border-radius: 8px;
+    box-shadow: 0 0 5px #c4fa6f;
+}
+.quantity-buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.quantity-buttons button {
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    font-size: 14.5px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+    color: #d9edc4;
+    background-color: #052A2A;
+}
+
+.quantity-buttons button:hover {
+    background-color: #526129; 
+    
+}
+.quantity-display {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 20px;
+    border: 1px solid #ccc;
+    margin: 0 5px; 
+}
+.cart-item:hover {
+    box-shadow: 0 0 5px #c4fa6f; 
+    border: 1.5px solid #c0ff0c; 
+}
+.coupon-discount {
+    margin-top: 10px;
+}
+
+.coupon-discount .green {
+    color: #00a000; 
+}
+
+.cart-summary-text {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #666; 
+}
+
+

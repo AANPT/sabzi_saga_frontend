@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { ProductSliderData } from "../../Data.js";
 import Modal from "./Modal.jsx";
-import { useMediaQuery } from "react-responsive";
 import "./ProductSlider.css";
 
-const ProductSlider = () => {
+
+const ProductSlider = ({ products }) => {
+  const sortedProducts = [...products].sort((a, b) => a.price - b.price);
   const [modal, setModal] = useState(false);
   const [tempdata, setTempdata] = useState([]);
 
-  const getData = (img, title, desc, price) => {
-    let tempData = [img, title, desc, price];
+  const getData = (img, title, desc, price, id) => {
+    let tempData = [img, title, desc, price, id];
     setTempdata((item) => [1, ...tempData]);
     setModal(true);
   };
@@ -21,35 +21,33 @@ const ProductSlider = () => {
     setModal(false);
   };
 
-  //   const isDesktopOrLaptop = useMediaQuery({
-  //     query: "(min-width: 992px)",
-  //   });
 
-  const isTablet = useMediaQuery({
-    query: "(min-width: 768px) and (max-width: 991px)",
-  });
-
-  const isMobile = useMediaQuery({
-    query: "(max-width: 767px)",
-  });
-
-  // Calculate slidesToShow based on screen size
-  let slidesToShow = 3;
-  if (isMobile) {
-    slidesToShow = 1;
-  } else if (isTablet) {
-    slidesToShow = 2;
-  }
-
-  // Slick Carousel settings
   const sliderSettings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: slidesToShow,
+    slidesToShow: 4,
     slidesToScroll: 1,
-    // prevArrow: <CustomPrevArrow />,
-    // nextArrow: <CustomNextArrow />,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
 
   return (
@@ -86,7 +84,7 @@ const ProductSlider = () => {
                 <div className="icons-container">
                   <div className="row">
                     <div
-                      className="icons col-lg-4 "
+                      className="icons col-lg-5 d-flex justify-content-center align-items-center"
                       style={{
                         padding: "1rem",
                         border: "2px solid #052A2A",
@@ -95,10 +93,10 @@ const ProductSlider = () => {
                         transition: "background-color 0.3s",
                       }}
                     >
-                      <h3>Weekly Offers</h3>
+                      <button className="w-100 h-100 p-0 border-0 bg-transparent">Vegetables</button>
                     </div>
                     <div
-                      className="icons col-lg-5"
+                      className="icons col-lg-5 d-flex justify-content-center align-items-center"
                       style={{
                         padding: "1rem",
                         border: "2px solid #052A2A",
@@ -107,7 +105,7 @@ const ProductSlider = () => {
                         transition: "background-color 0.3s",
                       }}
                     >
-                      <h3>Budget-friendly</h3>
+                      <button className="w-100 h-100 p-0 border-0 bg-transparent">fruits</button>
                     </div>
                   </div>
                 </div>
@@ -124,24 +122,28 @@ const ProductSlider = () => {
         You can Order
       </h3>
       <h1 className="text-center">Our Fresh Veggies</h1>
-      <section className="py-4 py-lg-5 container">
+
+      <section className="py-4 py-lg-5 container w-100">
         <Slider {...sliderSettings}>
-          {ProductSliderData.map((item, index) => (
+          {sortedProducts.slice(0, 10).map((item, index) => (
             <div
-              className="slider-container col-11 col-md-6 col-lg-3 mx-0 mb-4"
+              className="slider-container col-3 col-md-6 col-lg-3 mx-0 mb-4"
               key={index}
             >
-              <div className="card" p-0 overflow-hidden h-100 shadow>
-                <img src={item.imgsrc} className="card-img-top" alt="..." />
+              <div className="card custom-card  p-0 shadow" style={{ height: "400px" }}>
+                <img src={item.images.url} className="card-img-top" alt="..." style={{ height: "200px" }} />
 
                 <div className="card-body">
-                  <h5 className="card-title">{item.title}</h5>
-                  <p className="card-text">{item.desc}</p>
+                  <h5 className="card-title">{item.name}</h5>
+                  <p className="card-text">{item.description}</p>
                   <h6 className="card-text">Starting with {item.price}</h6>
+
+                </div>
+                <div className="card-footer">
                   <button
-                    className="btn btn-primary"
+                    className="btn explore-btn  btn-primary"
                     onClick={() =>
-                      getData(item.imgsrc, item.title, item.desc, item.price)
+                      getData(item.images.url, item.name, item.description, item.price, item._id)
                     }
                   >
                     Explore
@@ -159,6 +161,7 @@ const ProductSlider = () => {
           title={tempdata[2]}
           desc={tempdata[3]}
           price={tempdata[4]}
+          id={tempdata[5]}
         />
       )}
     </>

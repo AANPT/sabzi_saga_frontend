@@ -1,0 +1,130 @@
+/* src/ResetStyle.css */
+.reset-password-container {
+    box-shadow: 0 4px 8px;
+  border-style: solid ;
+  border-width: 3px;
+  border-color: #c4fa6f;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: white;
+    margin-top: 20px;
+    max-width: 500px; /* Adjust the max-width value as needed */
+    margin: 0 auto; /* Center-align the container on larger screens */
+    margin-top: 80px;
+  }
+  
+  .reset-password-title {
+    font-size: 24px; /* Adjust the font size as needed */
+    margin-bottom: 20px; /* Add some margin below the title */
+  }
+  
+  .btn-transition {
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px; /* Add margin below the button */
+  }
+.form-group {
+    position: relative;
+    margin-bottom: 20px; /* Add margin below each form group */
+}
+
+/* Style for floating labels */
+.form-group label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+    font-size: 16px;
+    color: #052a2a;
+    pointer-events: none;
+}
+
+.form-group input:focus ~ label,
+.form-group textarea:focus ~ label,
+.form-group input:not(:placeholder-shown) ~ label,
+.form-group textarea:not(:placeholder-shown) ~ label {
+    top: 0;
+    transform: translateY(-100%);
+    font-size: 12px;
+    color: #052a2a;
+    
+}
+.password-rules {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #888;
+  }
+  
+  .password-rules ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .password-rules li {
+    margin-bottom: 3px;
+  }
+  
+  .password-rules li.valid {
+    color: green;
+  }
+  
+  .form-control:focus + .form-label,
+  .form-control:not(:placeholder-shown) + .form-label {
+    transform: translateY(-1.5em) scale(0.85);
+  }
+  
+  /* Add green border for valid password */
+  .form-control.password-valid {
+    border-color: green;
+  }
+  
+  /* Add red border for invalid password */
+  .form-control.password-invalid {
+    border-color: red;
+  }
+  .bouncing-smiley {
+    text-align: center;
+    font-size: 80px;
+    animation: bounce 2s infinite;
+    margin-bottom: 10px;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  .button-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    gap: 10px; /* Add gap between buttons */
+    justify-content: center; /* Center-align buttons on smaller screens */
+    margin-top: 20px;
+  }
+  
+  .btn-small {
+    padding: 5px 15px;
+    font-size: 14px;
+    min-width: 120px; /* Ensure minimum width for buttons */
+    background-color: #052a2a;
+    color: #d9edc4;
+    border: none;
+  }
+  
+  .btn-transition {
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .btn-transition:hover {
+    background-color: #526129;
+  }
