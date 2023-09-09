@@ -1,6 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import { userReducer, profileReducer } from "./reducers/userReducer";
+import {
+  userReducer,
+  profileReducer,
+  paymentReducer,
+} from "./reducers/userReducer";
 import { productReducer, cartReducer } from "./reducers/productReducer";
 import { shopReducer } from "./reducers/shopReducer";
 import { vendorReducer } from "./reducers/vendorReducer";
@@ -14,6 +18,7 @@ const store = configureStore({
     vendor: vendorReducer,
     cart: cartReducer,
     other: otherReducer,
+    order: paymentReducer,
     // admin: adminReducer,
     // vendor: vendorReducer,
   },

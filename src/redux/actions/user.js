@@ -92,3 +92,24 @@ export const logout = () => async (dispatch) => {
     dispatch({ type: "logoutFail", payload: error.response.data.message });
   }
 };
+
+export const buyProducts = (amount) => async (dispatch) => {
+  try {
+    const config = {
+      headers: {
+        "Content-type": "application/json",
+      },
+      withCredentials: true,
+    };
+    dispatch({ type: "buyProductsRequest" });
+
+    const { data } = await axios.get(`${server}/payCheck/${amount}`, config);
+
+    dispatch({ type: "buyProductsSuccess", payload: data });
+  } catch (error) {
+    dispatch({
+      type: "buyProductsFail",
+      payload: error.response.data.message,
+    });
+  }
+};

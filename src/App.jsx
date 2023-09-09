@@ -22,7 +22,8 @@ import { useDispatch, useSelector } from "react-redux";
 import toast, { Toaster } from 'react-hot-toast';
 import { useEffect } from "react";
 import { loadUser } from "./redux/actions/user";
-import { ProtectedRoute } from 'protected-route-react';
+import PaymentSuccess from "./components/Payment/PaymentSuccess";
+import PaymentFail from "./components/Payment/PaymentFail";
 import Stats from "./components/Moderator/Stats/Stats";
 import ProductMgmt from "./components/Moderator/ProductMgmt/ProductMgmt";
 import OrderMgmt from "./components/Moderator/Order/OrderMgmt";
@@ -31,6 +32,7 @@ import RegisterVendor from "./components/Auth/RegisterVendor";
 import Loader from "./components/Layout/Loader/Loader";
 import ItemList from "./components/Moderator/Order/vendorOrder";
 import Checkout from "./components/Checkout/Checkout";
+
 
 function App() {
 
@@ -114,7 +116,9 @@ function App() {
             <Route path="/orders" element={<OrderMgmt />} />
 
             <Route path="/contact" element={<Contact />} />
+
             <Route path="/checkout" element={<Checkout />} />
+
             <Route path="/changepassword" element={<ChangePassword />} />
             <Route path="*" element={<NotFound />} />
 
@@ -129,6 +133,10 @@ function App() {
             <Route path="/vendor/ordermgmt" element={
               <ItemList />
             } />
+
+            <Route path="/paymentsuccess" element={<PaymentSuccess />} />
+
+            <Route path="/paymentfail" element={<PaymentFail />} />
           </Routes>
           <Footer />
           <Toaster />

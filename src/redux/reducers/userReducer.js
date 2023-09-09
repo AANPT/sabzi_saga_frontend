@@ -139,3 +139,27 @@ export const profileReducer = createReducer(
     },
   }
 );
+
+export const paymentReducer = createReducer(
+  {},
+  {
+    buyProductsRequest: (state) => {
+      state.loading = true;
+    },
+    buyProductsSuccess: (state, action) => {
+      state.loading = false;
+      state.orderId = action.payload;
+    },
+    buyProductsFail: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+
+    clearError: (state) => {
+      state.error = null;
+    },
+    clearMessage: (state) => {
+      state.message = null;
+    },
+  }
+);

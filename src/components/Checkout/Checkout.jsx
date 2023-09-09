@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadUser } from '../../redux/actions/user';
 import { toast } from "react-hot-toast";
 import { Link } from 'react-router-dom';
-import { placeOrder } from "../../redux/actions/profile";
+import { buyProducts } from "../../redux/actions/user";
+import axios from "axios";
+import { server } from "../../redux/store";
 
 function Checkout() {
   const dispatch = useDispatch();
   const { user } = useSelector(state => state.user);
+  const { loading, error, orderId } = useSelector(
+    state => state.order
+  );
 
   let total;
   if (user && user.cart) {
@@ -16,7 +20,7 @@ function Checkout() {
   }
   const couponDiscount = 5;
   const convenienceFee = 40;
-
+  const [key, setKey] = useState('');
   const [email, setEmail] = useState(user?.email || '');
   const [firstName, setFirstName] = useState('');
   const [secondName, setSecondName] = useState('');
@@ -27,19 +31,14 @@ function Checkout() {
   const [phoneNo, setPhoneNo] = useState(user?.phoneNo || '');
   const [city, setCity] = useState('');
   const [pincode, setPinCode] = useState(0);
-  const [grandTotal, setGrandTotal] = useState(0);
+  const [grandtotal, setGrandTotal] = useState(0);
 
 
-
-  const submitHandler = e => {
-
-
+  const submitHandler = async e => {
     e.preventDefault();
     if (user) {
       const products = user.cart;
       const myForm = new FormData();
-      const paymentForm = new FormData();
-      paymentForm.append('total', grandTotal);
       const fullName = firstName + " " + secondName;
       if (fullName !== buyerName)
         setName(fullName);
@@ -50,15 +49,67 @@ function Checkout() {
       myForm.append('state', state);
       myForm.append('city', city);
       myForm.append('phoneNo', phoneNo);
-      myForm.append('total', grandTotal);
+      myForm.append('total', grandtotal / 100);
       myForm.append('pincode', pincode);
       myForm.append('products', JSON.stringify(products));
-
-      dispatch(placeOrder(myForm));
     }
-
   }
 
+
+  const checkoutHandler = async () => {
+
+    const {
+      data: { key },
+    } = await axios.get(`${server}/razorpaykey`);
+
+    setKey(key);
+    let amount = (total - (couponDiscount * total) / 100 + convenienceFee);
+    setGrandTotal(amount * 100);
+    dispatch(buyProducts(amount));
+  };
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+      dispatch({ type: 'clearError' });
+    }
+    if (orderId) {
+      const openPopUp = () => {
+        const options = {
+          key,
+          amount: grandtotal,
+          name: 'SabziSaga',
+          description: 'Pay for your products',
+          image: "https://images.pexels.com/photos/5677794/pexels-photo-5677794.jpeg?auto=compress&cs=tinysrgb&w=600",
+          order_id: orderId,
+          callback_url: `${server}/paymentverification`,
+          prefill: {
+            name: user.name,
+            email: user.email,
+            contact: '',
+          },
+          notes: {
+            address: 'Providing premium vegetable very cheap',
+          },
+          theme: {
+            color: '#09ff00',
+          },
+        };
+
+        const razor = new window.Razorpay(options);
+        razor.open();
+      };
+      openPopUp();
+    }
+  }, [
+    dispatch,
+    error,
+    user.name,
+    user.email,
+    key,
+    orderId,
+    grandtotal,
+  ]);
 
   return (
     <div>
@@ -197,7 +248,7 @@ function Checkout() {
                               </button>
                             </Link>
 
-                            <button type="submit" className="btn btn-primary" style={{ backgroundColor: "#052A2A", color: "#d9edc4" }}>
+                            <button type="submit" className="btn btn-primary" style={{ backgroundColor: "#052A2A", color: "#d9edc4" }} onClick={checkoutHandler}>
                               Place Order
                             </button>
                           </div>
@@ -223,8 +274,8 @@ function Checkout() {
                 <tbody>
                   {user?.cart ? (
                     user.cart.length > 0 ? (
-                      user.cart.map(item => (
-                        <tr>
+                      user.cart.map((item, index) => (
+                        <tr key={index}>
                           {/* These are dummy data */}
                           <td>{item.product_name}</td>
                           <td>{item.product_price}</td>
@@ -234,10 +285,10 @@ function Checkout() {
 
                       ))
                     ) : (
-                      <h1 className="d-flex justify-content-center align-items-center">No Item to Place order.</h1>
+                      <tr className="d-flex justify-content-center align-items-center"><td>No Item to Place order.</td></tr>
                     )
                   ) : (
-                    <p>Loading user data...</p>
+                    <tr><td>Loading user data...</td></tr>
                   )}
 
                   <tr>
