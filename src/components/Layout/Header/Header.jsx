@@ -13,7 +13,6 @@ import { Link } from "react-router-dom";
 import {
   faUser,
   faCartShopping,
-  faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import { logout } from "../../../redux/actions/user";
