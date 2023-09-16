@@ -116,9 +116,11 @@ export default function Market() {
                     <p className="card-text" style={{ color: "#052A2A" }}>
                       {shop.service}
                     </p>
-                    <Link to="/login">
+                    <Link to={`/products/${shop._id}`}>
                       <button className="btn btn-lg custom-btn"> View Products</button>
                     </Link>
+
+
                   </div>
                 </div>
               </div>
