@@ -70,7 +70,7 @@ function App() {
         <>
           <Header isAuthenticated={isAuthenticated} user={user} />
           <Routes>
-            <Route path="/" element={<Home />} />
+
             <Route path="/shops" element={
               <Market />
             } />
@@ -120,7 +120,6 @@ function App() {
             <Route path="/checkout" element={<Checkout />} />
 
             <Route path="/changepassword" element={<ChangePassword />} />
-            <Route path="*" element={<NotFound />} />
 
 
             {/* Vendor Routes */}
@@ -137,6 +136,8 @@ function App() {
             <Route path="/paymentsuccess" element={<PaymentSuccess />} />
 
             <Route path="/paymentfail" element={<PaymentFail />} />
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
           <Toaster />
