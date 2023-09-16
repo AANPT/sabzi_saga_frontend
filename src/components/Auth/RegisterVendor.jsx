@@ -22,7 +22,7 @@ const RegisterVendor = () => {
 
     const dispatch = useDispatch();
 
-    const submitHandler = e => {
+    const submitHandler = async e => {
         e.preventDefault();
         const myForm = new FormData();
         const shopForm = new FormData();
@@ -41,8 +41,9 @@ const RegisterVendor = () => {
         shopForm.append('service', selected);
         shopForm.append('file', image);
 
-        dispatch(registerVendor(myForm));
-        dispatch(createShop(shopForm));
+        await dispatch(registerVendor(myForm));
+        await dispatch(createShop(shopForm));
+
     }
 
     return (
