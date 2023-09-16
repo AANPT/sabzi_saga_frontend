@@ -73,10 +73,14 @@ const Header = ({ isAuthenticated = false, user }) => {
                 Home
 
               </Nav.Link>
-              <Nav.Link href="/shops" className="text-decoration-none text-reset">
-
-                Market
-
+              <Nav.Link className="text-decoration-none text-reset">
+                <Link
+                  to="/shops"
+                  className="text-decoration-none text-reset"
+                >
+                  {" "}
+                  Market
+                </Link>
               </Nav.Link>
               <Nav.Link href="/products" className="text-decoration-none text-reset">
                 {" "}
