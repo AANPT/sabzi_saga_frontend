@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { buyProducts } from "../../redux/actions/user";
 import axios from "axios";
 import { server } from "../../redux/store";
+import { placeOrder } from "../../redux/actions/profile";
 
 function Checkout() {
   const dispatch = useDispatch();
@@ -52,6 +53,8 @@ function Checkout() {
       myForm.append('total', grandtotal / 100);
       myForm.append('pincode', pincode);
       myForm.append('products', JSON.stringify(products));
+
+      await dispatch(placeOrder(myForm));
     }
   }
 
@@ -66,6 +69,7 @@ function Checkout() {
     let amount = (total - (couponDiscount * total) / 100 + convenienceFee);
     setGrandTotal(amount * 100);
     dispatch(buyProducts(amount));
+
   };
 
   useEffect(() => {

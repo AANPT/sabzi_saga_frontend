@@ -1,5 +1,6 @@
 import React from "react";
 import "./Foot.css";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
@@ -22,19 +23,35 @@ const Footer = () => {
               <h5>Quick Links</h5>
               <ul>
                 <li>
-                  <a className="" href="/aboutus">
+                  <Link
+                    to="/aboutus"
+                    className="text-decoration-none text-reset"
+                  >
+
                     About Us
-                  </a>
+                  </Link>
+
+
                 </li>
                 <li>
-                  <a className="" href="/feedback">
+                  <Link
+                    to="/feedback"
+                    className="text-decoration-none text-reset"
+                  >
+
                     Feedback
-                  </a>
+                  </Link>
+
                 </li>
                 <li>
-                  <a className="" href="/contact">
+                  <Link
+                    to="/contact"
+                    className="text-decoration-none text-reset"
+                  >
+
                     contact us
-                  </a>
+                  </Link>
+
                 </li>
               </ul>
             </div>
