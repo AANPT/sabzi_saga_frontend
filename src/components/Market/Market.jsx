@@ -3,7 +3,7 @@ import "./Marketstyle.css";
 import React, { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import { loadUser } from '../../redux/actions/user';
 import { getAllShops } from "../../redux/actions/shop";
 
@@ -94,47 +94,7 @@ export default function Market() {
         </div>
       </div>
 
-      {/* EXPLORE STORES */}
-      {/* <div className="container">
-        <h1 className="my-4" style={{ color: "#052A2A" }}>
-          Some of Our Partners
-        </h1>
-        <div className="row row-cols-1 row-cols-md-3 g-4">
-          {
-            shops.length > 0 ? (
-              shops.map((shop, key) => {
-                return (
-                  <div className="col" key={key}>
-                    <div className="card h-100">
-                      <img src={shop.images.url} className="card-img-top" alt="Vendor 1" />
-                      <div className="card-body">
-                        <h5 className="card-title" style={{ color: "#052A2A" }}>
-                          {shop.name}
-                        </h5>
-                        <p className="card-text" style={{ color: "#052A2A" }}>
-                          {shop.description}
-                        </p>
-                        <p className="card-text" style={{ color: "#052A2A" }}>
-                          {shop.service}
-                        </p>
-                        <a
-                          href={`/products/${shop._id}`}
-                          className="btn btn-lg"
-                          style={{ backgroundColor: "#052A2A", color: "#d9edc4" }}
-                        >
-                          View Products
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                )
-              })
-            ) : (
-              <h2>Shops Not Found</h2>
-            )
-          }
-        </div>
-      </div> */}
+
 
       <div className="container">
         <h1 className="my-4" style={{ color: "#052A2A" }}>
@@ -156,12 +116,9 @@ export default function Market() {
                     <p className="card-text" style={{ color: "#052A2A" }}>
                       {shop.service}
                     </p>
-                    <a
-                      href={`/products/${shop._id}`}
-                      className="btn btn-lg custom-btn"
-                    >
-                      View Products
-                    </a>
+                    <Link to="/login">
+                      <button className="btn btn-lg custom-btn"> View Products</button>
+                    </Link>
                   </div>
                 </div>
               </div>

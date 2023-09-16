@@ -105,7 +105,7 @@ function CartItem({ item, increaseQuantity, decreaseQuantity, removeItemHandler 
   return (
     <div className="cart-item">
       {/* <img src={item.imageUrl} alt={item.name} className="cart-item-image" /> */}
-      <a href="/" target="_blank" rel="noopener noreferrer">
+      <a href="/">
         <img src={item.product_image_url} alt={item.product_name} className="cart-item-image" />
       </a>
       &nbsp;&nbsp;&nbsp;
