@@ -82,22 +82,36 @@ const Header = ({ isAuthenticated = false, user }) => {
                   Market
                 </Link>
               </Nav.Link>
-              <Nav.Link href="/products" className="text-decoration-none text-reset">
-                {" "}
+              <Nav.Link className="text-decoration-none text-reset">
+                <Link
+                  to="/products"
+                  className="text-decoration-none text-reset"
+                >
+                  {" "}
+                  Products
+                </Link>
 
-                Products
 
               </Nav.Link>
-              <Nav.Link href="/prediction" className="text-decoration-none text-reset">
-                {" "}
-
-                Prediction
+              <Nav.Link className="text-decoration-none text-reset">
+                <Link
+                  to="/prediction"
+                  className="text-decoration-none text-reset"
+                >
+                  {" "}
+                  Prediction
+                </Link>
 
               </Nav.Link>
-              <Nav.Link href="/aboutus" className="text-decoration-none text-reset">
-                {" "}
+              <Nav.Link className="text-decoration-none text-reset">
+                <Link
+                  to="/aboutus"
+                  className="text-decoration-none text-reset"
+                >
+                  {" "}
+                  AboutUs
+                </Link>
 
-                AboutUs
 
               </Nav.Link>
               {/* <Nav.Link href="/location" className="text-decoration-none text-reset">
@@ -108,13 +122,19 @@ const Header = ({ isAuthenticated = false, user }) => {
               </Nav.Link> */}
               {isAuthenticated ? (
                 <>
-                  <Nav.Link href="/cart" className="text-decoration-none text-reset">
+                  <Nav.Link className="text-decoration-none text-reset">
+                    <Link
+                      to="/cart"
+                      className="text-decoration-none text-reset"
+                    >
+                      {" "}
+                      <FontAwesomeIcon icon={faCartShopping} />
+                      <Badge pill bg="danger" id="cart_badge" className="mt-0">
 
-                    <FontAwesomeIcon icon={faCartShopping} />
-                    <Badge pill bg="danger" id="cart_badge" className="mt-0">
+                        {user.cart.length}
+                      </Badge>
 
-                      {user.cart.length}
-                    </Badge>
+                    </Link>
 
                   </Nav.Link>
                   <NavDropdown
