@@ -23,6 +23,10 @@ const Header = ({ isAuthenticated = false, user }) => {
   const logoutHandler = () => {
     dispatch(logout());
   };
+  const redirectToDifferentPort = () => {
+    window.open('http://localhost:8501', '_blank');
+  };
+
 
   return (
     <div>
@@ -93,12 +97,14 @@ const Header = ({ isAuthenticated = false, user }) => {
 
 
               </Nav.Link>
-              <Nav.Link href="http://localhost:8501" target="_blank" className="text-decoration-none text-reset">
+
+              <Nav.Link onClick={redirectToDifferentPort} className="text-decoration-none text-reset">
 
                 {" "}
                 Prediction
 
               </Nav.Link>
+
               <Nav.Link className="text-decoration-none text-reset">
                 <Link
                   to="/aboutus"
