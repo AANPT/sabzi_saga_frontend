@@ -95,7 +95,7 @@ const Header = ({ isAuthenticated = false, user }) => {
               </Nav.Link>
               <Nav.Link className="text-decoration-none text-reset">
                 <Link
-                  to="/prediction"
+                  to="http://localhost:8501/"
                   className="text-decoration-none text-reset"
                 >
                   {" "}
